@@ -28,6 +28,7 @@ public class App {
         }
         System.out.println("---");
     }
+
     public void alive( int x, int y){
     this.game[x][y] = 1;
     }
@@ -91,26 +92,35 @@ public class App {
         this.game = newGame;
     }
 
+    
+    public void taco(int number) {
+        for (int i = 0; i < number; i++) {
+            playGame();
+            map();
+        }
+
+    }
+
 
 
         public static void main(String[] args) {
             App  app = new App (9, 7);
-            
+
+
             app.alive(1,2);
             app.alive(2, 2);
             app.alive(3, 2);
+            app.alive(3, 3);
+            app.alive(5, 2);
+            app.alive(6, 5);
+            app.alive(8, 6);
+            app.alive(7, 6);
+            app.alive(6, 6);
+
          
-            
-            app.playGame();
-            app.map();
-            app.playGame();
-            app.map();
-            app.playGame();
-            app.map();
-            app.playGame();
-            app.map();
-            app.playGame();
-            app.map();
+            app.taco(20);
+
+        
         }
 
 }
