@@ -117,9 +117,6 @@ public class App {
         for (int i = 0; i < livingPixels; i++) {
            int xAlive =( (int)(Math.random() * (xWidth)) );
             int yAlive = ( (int)(Math.random() * (yHeight)) );
-            System.out.println(i);
-            System.out.println(xAlive);
-            System.out.println(yAlive);
             app.alive(xAlive, yAlive);
         }
         app.runGame(runCycles);
@@ -129,10 +126,10 @@ public class App {
 
         public static void main(String[] args) {
 
-           gameSetUp(6,6,4,5); 
+           gameSetUp(8,8,25,25); 
            // change params to run game under different conditions
 
-        
+
         
         }
 
