@@ -124,7 +124,7 @@ public class App {
         global.gamesPlayed += 1;
         global.cyclesRan += runCycles;
         System.out.println("Total Games Played:"+ global.gamesPlayed);
-        System.out.println("Total Cycles Run:" + global.cyclesRan);
+        System.out.println("Total Cycles Ran:" + global.cyclesRan);
 
 
     }
@@ -136,6 +136,9 @@ public class App {
             
            gameSetUp(8,8,25,25); 
            // change params to run game under different conditions
+           gameSetUp(8, 8, 25, 25);
+           //running multiple games counts in the single run, but global file does not persist
+           gameSetUp(8, 8, 25, 25);
 
 
         
