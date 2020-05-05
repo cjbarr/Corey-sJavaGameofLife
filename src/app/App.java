@@ -60,8 +60,9 @@ public class App {
         }
         if(y < 0 || y>= height){
             return 0;
-        }
+        }else{
         return this.game[x][y];
+        }
     }
 
     public void map(){
@@ -93,7 +94,7 @@ public class App {
     }
 
     
-    public void taco(int number) {
+    public void runGame(int number) {
         for (int i = 0; i < number; i++) {
             playGame();
             map();
@@ -101,25 +102,28 @@ public class App {
 
     }
 
+    public static void gameSetUp (int xWidth, int yHeight, int livingPixels, int runCycles){
+
+        App app = new App (xWidth, yHeight);
+
+        for (int i = 0; i < livingPixels; i++) {
+           int xAlive =( (int)(Math.random() * (xWidth)) );
+            int yAlive = ( (int)(Math.random() * (yHeight)) );
+            System.out.println(i);
+            System.out.println(xAlive);
+            System.out.println(yAlive);
+            app.alive(xAlive, yAlive);
+        }
+        app.runGame(runCycles);
+    }
+
 
 
         public static void main(String[] args) {
-            App  app = new App (9, 7);
 
+           gameSetUp(6,6,4,5);
 
-            app.alive(1,2);
-            app.alive(2, 2);
-            app.alive(3, 2);
-            app.alive(3, 3);
-            app.alive(5, 2);
-            app.alive(6, 5);
-            app.alive(8, 6);
-            app.alive(7, 6);
-            app.alive(6, 6);
-
-         
-            app.taco(20);
-
+        
         
         }
 
