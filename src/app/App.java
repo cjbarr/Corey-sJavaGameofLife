@@ -151,14 +151,17 @@ public class App {
             System.out.println("Cycles in game: " + gameCycles);
 
             gameSetUp(gameWidth, gameHeight, gameAlive, gameCycles);
-            
             Scanner resObj = new Scanner(System.in);
             System.out.println("Play again? y/n:");
             String response = resObj.nextLine();
             if(response.equals("y")){
                 terminalSetup();
+                myObj.close();
+                resObj.close();
             }else{
                 System.out.println("Game Over") ;
+                myObj.close();
+                resObj.close();
                 return;
             }
 
