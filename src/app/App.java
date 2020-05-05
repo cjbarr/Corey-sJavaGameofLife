@@ -130,13 +130,11 @@ public class App {
 
     }
 
-
-
-        public static void main(String[] args) {
+        public static void terminalSetup() {
             Scanner myObj = new Scanner(System.in); // Create a Scanner object
             System.out.println("Enter game width:");
             int gameWidth = myObj.nextInt(); // Read user input
-            
+
             System.out.println("Enter game height:");
             int gameHeight = myObj.nextInt(); // Read user input
 
@@ -146,19 +144,31 @@ public class App {
             System.out.println("Enter number of cycles to run:");
             int gameCycles = myObj.nextInt(); // Read user input
 
+
+            System.out.println("Game Width is: " + gameWidth);
+            System.out.println("Game Height is: " + gameHeight);
+            System.out.println("Starting number of alive pixels: " + gameAlive);
+            System.out.println("Cycles in game: " + gameCycles);
+
+            gameSetUp(gameWidth, gameHeight, gameAlive, gameCycles);
             
-            System.out.println("Game Width is: " + gameWidth); 
-            System.out.println("Game Height is: " + gameHeight); 
-            System.out.println("Starting number of alive pixels: " + gameAlive); 
-            System.out.println("Cycles in game: " + gameCycles); 
+            Scanner resObj = new Scanner(System.in);
+            System.out.println("Play again? y/n:");
+            String response = resObj.nextLine();
+            if(response.equals("y")){
+                terminalSetup();
+            }else{
+                System.out.println("Game Over") ;
+                return;
+            }
+
+        }
 
 
-           gameSetUp(gameWidth,gameHeight,gameAlive,gameCycles); 
 
-           // change params to run game under different conditions
-        //    gameSetUp(8, 8, 25, 25);
-        //    //running multiple games counts in the single run, but global file does not persist
-        //    gameSetUp(8, 8, 25, 25);
+        public static void main(String[] args) {
+
+            terminalSetup();
 
 
         
