@@ -1,4 +1,5 @@
 package app;
+import global.global;
 
 public class App {
 
@@ -120,12 +121,19 @@ public class App {
             app.alive(xAlive, yAlive);
         }
         app.runGame(runCycles);
+        global.gamesPlayed += 1;
+        global.cyclesRan += runCycles;
+        System.out.println("Total Games Played:"+ global.gamesPlayed);
+        System.out.println("Total Cycles Run:" + global.cyclesRan);
+
+
     }
 
 
 
         public static void main(String[] args) {
 
+            
            gameSetUp(8,8,25,25); 
            // change params to run game under different conditions
 
