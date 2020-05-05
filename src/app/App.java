@@ -13,6 +13,8 @@ public class App {
     }
 
     public void playGame(){
+
+        //creates and displays gameboard mapping sprites per value
         System.out.println("---");
         for (int yAxis = 0; yAxis < height; yAxis++) {
             String row = "|";
@@ -30,6 +32,7 @@ public class App {
     }
 
     public void alive( int x, int y){
+        //creates alive pixels
     this.game[x][y] = 1;
     }
 
@@ -38,6 +41,8 @@ public class App {
     }
 
     public int countAlive (int x, int y){
+
+        //counts neighbors of selected pixel
         int count = 0;
 
         count += returnStatus(x - 1,y-1);
@@ -55,6 +60,7 @@ public class App {
     }
 
     public int returnStatus (int x, int y){
+        //handles logic for numbers outside of range
         if(x < 0 || x>= width){
             return 0;
         }
@@ -66,6 +72,7 @@ public class App {
     }
 
     public void map(){
+        //logic for living or dying pixles based on neighbors
 
         int[][] newGame = new int [width][height];
 
@@ -95,6 +102,7 @@ public class App {
 
     
     public void runGame(int number) {
+        //runs game simulation x number of times
         for (int i = 0; i < number; i++) {
             playGame();
             map();
@@ -102,8 +110,8 @@ public class App {
 
     }
 
-    public static void gameSetUp (int xWidth, int yHeight, int livingPixels, int runCycles){
-
+    public static void gameSetUp (int xWidth, int yHeight, int livingPixels, int runCycles){ 
+        // function takes in game width, height, number of starting living pixels, and a number of times to run game
         App app = new App (xWidth, yHeight);
 
         for (int i = 0; i < livingPixels; i++) {
@@ -121,7 +129,8 @@ public class App {
 
         public static void main(String[] args) {
 
-           gameSetUp(6,6,4,5);
+           gameSetUp(6,6,4,5); 
+           // change params to run game under different conditions
 
         
         
